@@ -1,128 +1,122 @@
 {
-  "name": "ng-whiteboard",
-  "version": "0.0.0-semantically-released",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "copy:readme": "copyfiles ./README.md ./projects/ng-whiteboard",
-    "build": "npm run build:lib && npm run build:demo",
-    "build:lib": "npm run copy:readme && ng build ng-whiteboard",
-    "build:demo": "ng build --configuration production demo --base-href='https://mostafazke.github.io/ng-whiteboard/'",
-    "format:check": "prettier --list-different \"projects/**/*.ts\"",
-    "format:write": "prettier --write \"projects/**/*.ts\"",
-    "format-package-json": "npm-run-all format-package-json:*",
-    "format-package-json:lib": "prettier --write \"projects/ng-whiteboard/package.json\"",
-    "format-package-json:main": "prettier --write \"package.json\"",
-    "test": "ng test",
-    "test:lib": "ng test ng-whiteboard",
-    "test:lib-coverage": "ng test ng-whiteboard --code-coverage --watch=false --browsers=ChromeHeadless",
-    "report-coverage:lib": "cat ./coverage/ng-whiteboard/lcov.info | codecov",
-    "publish:demo": "npx angular-cli-ghpages --dir=./dist/demo",
-    "publish:lib": "npx semantic-release",
-    "adjust-version": "npm-run-all adjust-version:*",
-    "adjust-version:lib": "rjp projects/ng-whiteboard/package.json version $VERSION",
-    "adjust-version:main": "rjp package.json version $VERSION",
-    "lint": "ng lint",
-    "lint:lib": "ng lint ng-whiteboard",
-    "e2e": "ng e2e",
-    "semantic-release": "semantic-release",
-    "postinstall": "ngcc",
-    "commit": "git-cz"
-  },
-  "private": false,
-  "release": {
-    "pkgRoot": "dist/ng-whiteboard"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "projects/**/*.ts": [
-      "prettier --write"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "dependencies": {
-    "@angular/animations": "^14.0.6",
-    "@angular/common": "^14.0.6",
-    "@angular/compiler": "^14.0.6",
-    "@angular/core": "^14.0.6",
-    "@angular/forms": "^14.0.6",
-    "@angular/platform-browser": "^14.0.6",
-    "@angular/platform-browser-dynamic": "^14.0.6",
-    "@angular/pwa": "^0.901.2",
-    "@angular/router": "^14.0.6",
-    "@angular/service-worker": "^14.0.6",
-    "d3": "^5.16.0",
-    "file-saver": "^2.0.2",
-    "ngx-toastr": "^12.0.1",
-    "rxjs": "~6.5.4",
-    "tslib": "^2.0.0",
-    "zone.js": "~0.11.6"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^14.0.6",
-    "@angular-devkit/build-ng-packagr": "^0.1002.4",
-    "@angular-eslint/builder": "13.5.0",
-    "@angular-eslint/eslint-plugin": "13.5.0",
-    "@angular-eslint/eslint-plugin-template": "13.5.0",
-    "@angular-eslint/schematics": "13.5.0",
-    "@angular-eslint/template-parser": "13.5.0",
-    "@angular/cli": "^14.0.6",
-    "@angular/compiler-cli": "^14.0.6",
-    "@angular/language-service": "^14.0.6",
-    "@commitlint/cli": "^13.0.0",
-    "@commitlint/config-conventional": "^13.0.0",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/exec": "^5.0.0",
-    "@semantic-release/git": "^9.0.0",
-    "@types/d3": "^5.16.0",
-    "@types/file-saver": "^2.0.1",
-    "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
-    "@typescript-eslint/eslint-plugin": "5.27.1",
-    "@typescript-eslint/parser": "5.27.1",
-    "codecov": "^3.6.5",
-    "copyfiles": "^2.2.0",
-    "cz-conventional-changelog": "^3.0.1",
-    "eslint": "^8.17.0",
-    "husky": "^4.2.5",
-    "jasmine-core": "~3.5.0",
-    "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~3.0.2",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
-    "lint-staged": "^10.1.7",
-    "ng-packagr": "^14.0.3",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.5",
-    "protractor": "~7.0.0",
-    "replace-json-property": "^1.4.3",
-    "semantic-release": "^19.0.3",
-    "ts-node": "~8.3.0",
-    "tsickle": "^0.39.1",
-    "typescript": "~4.6.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mostafazke/ng-whiteboard.git"
-  },
-  "resolutions": {
-    "**/**/lodash": "^4.17.12"
-  }
+	"name": "ng-whiteboard",
+	"version": "0.0.0-semantically-released",
+	"scripts": {
+		"ng": "ng",
+		"start": "ng serve",
+		"copy:readme": "copyfiles ./README.md ./projects/ng-whiteboard",
+		"build": "npm run build:lib && npm run build:demo",
+		"build:lib": "npm run copy:readme && ng build ng-whiteboard",
+		"build:demo": "ng build --configuration production demo --base-href='https://mostafazke.github.io/ng-whiteboard/'",
+		"format:check": "prettier --list-different \"projects/**/*.ts\"",
+		"format:write": "prettier --write \"projects/**/*.ts\"",
+		"format-package-json": "npm-run-all format-package-json:*",
+		"format-package-json:lib": "prettier --write \"projects/ng-whiteboard/package.json\"",
+		"format-package-json:main": "prettier --write \"package.json\"",
+		"test": "ng test",
+		"test:lib": "ng test ng-whiteboard",
+		"test:lib-coverage": "ng test ng-whiteboard --code-coverage --watch=false --browsers=ChromeHeadless",
+		"report-coverage:lib": "cat ./coverage/ng-whiteboard/lcov.info | codecov",
+		"publish:demo": "npx angular-cli-ghpages --dir=./dist/demo",
+		"publish:lib": "npx semantic-release",
+		"adjust-version": "npm-run-all adjust-version:*",
+		"adjust-version:lib": "rjp projects/ng-whiteboard/package.json version $VERSION",
+		"adjust-version:main": "rjp package.json version $VERSION",
+		"lint": "ng lint",
+		"lint:lib": "ng lint ng-whiteboard",
+		"e2e": "ng e2e",
+		"semantic-release": "semantic-release",
+		"postinstall": "ngcc",
+		"commit": "git-cz"
+	},
+	"private": false,
+	"release": {
+		"pkgRoot": "dist/ng-whiteboard"
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"lint-staged": {
+		"projects/**/*.ts": [
+			"prettier --write"
+		]
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"dependencies": {
+		"@angular/animations": "^14.0.6",
+		"@angular/common": "^14.0.6",
+		"@angular/compiler": "^14.0.6",
+		"@angular/core": "^14.0.6",
+		"@angular/forms": "^14.0.6",
+		"@angular/platform-browser": "^14.0.6",
+		"@angular/platform-browser-dynamic": "^14.0.6",
+		"@angular/pwa": "^0.901.2",
+		"@angular/router": "^14.0.6",
+		"@angular/service-worker": "^14.0.6",
+		"d3": "^5.16.0",
+		"file-saver": "^2.0.2",
+		"ngx-toastr": "^12.0.1",
+		"rxjs": "~6.5.4",
+		"tslib": "^2.0.0",
+		"zone.js": "~0.11.6"
+	},
+	"devDependencies": {
+		"@angular-devkit/build-angular": "^14.0.6",
+		"@angular-devkit/build-ng-packagr": "^0.1002.4",
+		"@angular-eslint/builder": "13.5.0",
+		"@angular-eslint/eslint-plugin": "13.5.0",
+		"@angular-eslint/eslint-plugin-template": "13.5.0",
+		"@angular-eslint/schematics": "13.5.0",
+		"@angular-eslint/template-parser": "13.5.0",
+		"@angular/cli": "^14.0.6",
+		"@angular/compiler-cli": "^14.0.6",
+		"@angular/language-service": "^14.0.6",
+		"@commitlint/cli": "^13.0.0",
+		"@commitlint/config-conventional": "^13.0.0",
+		"@semantic-release/changelog": "^5.0.1",
+		"@semantic-release/exec": "^5.0.0",
+		"@semantic-release/git": "^9.0.0",
+		"@types/d3": "^5.16.0",
+		"@types/file-saver": "^2.0.1",
+		"@types/jasmine": "~3.5.0",
+		"@types/jasminewd2": "~2.0.3",
+		"@types/node": "^12.11.1",
+		"@typescript-eslint/eslint-plugin": "5.27.1",
+		"@typescript-eslint/parser": "5.27.1",
+		"codecov": "^3.6.5",
+		"copyfiles": "^2.2.0",
+		"cz-conventional-changelog": "^3.0.1",
+		"eslint": "^8.17.0",
+		"husky": "^4.2.5",
+		"jasmine-core": "~3.5.0",
+		"jasmine-spec-reporter": "~5.0.0",
+		"karma": "~6.4.0",
+		"karma-chrome-launcher": "~3.1.0",
+		"karma-coverage-istanbul-reporter": "~3.0.2",
+		"karma-jasmine": "~4.0.0",
+		"karma-jasmine-html-reporter": "^1.5.0",
+		"lint-staged": "^10.1.7",
+		"ng-packagr": "^14.0.3",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.0.5",
+		"protractor": "~7.0.0",
+		"replace-json-property": "^1.4.3",
+		"semantic-release": "^19.0.3",
+		"ts-node": "~8.3.0",
+		"tsickle": "^0.39.1",
+		"typescript": "~4.6.4"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mostafazke/ng-whiteboard.git"
+	},
+	"resolutions": {
+		"**/**/lodash": "^4.17.12"
+	}
 }
